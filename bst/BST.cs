@@ -5,12 +5,14 @@ namespace bst{
     
     public class BinarySearchTree<TK, TV> where TK : IComparable<TK> {
         
+            object locker1 = new object();
+            object locker2 = new object();
+        
         public Node<TK, TV> Root;//Создаем корень.
 
         public void Insert(TK key, TV value) {//Вставка.
             
-            object locker1 = new object();
-            object locker2 = new object();
+
             
             Node<TK, TV> par = null;
 
@@ -78,9 +80,7 @@ namespace bst{
         }
 
         private Node<TK, TV> FindNode(TK key) {//Поиск.
-            
-            object locker1 = new object();
-            object locker2 = new object();
+          
             
             var current = Root;
 
@@ -114,8 +114,7 @@ namespace bst{
 
         public void Delete(TK key) {// Удаление.
             
-            object locker1 = new object();
-            object locker2 = new object();
+
             
             var node = FindNode(key);//Находим лист, который нужно удалить.
 
